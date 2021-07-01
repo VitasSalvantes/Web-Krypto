@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Cipher {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -43,5 +44,14 @@ public class Cipher {
 
     public void setViews(String views) {
         this.views = views;
+    }
+
+    public Cipher() {
+
+    }
+
+    public Cipher(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 }
