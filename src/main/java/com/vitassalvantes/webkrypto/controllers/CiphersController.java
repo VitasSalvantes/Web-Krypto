@@ -2,6 +2,7 @@ package com.vitassalvantes.webkrypto.controllers;
 
 import com.vitassalvantes.webkrypto.ciphers.AtbashCipher;
 import com.vitassalvantes.webkrypto.ciphers.CaesarCipher;
+import com.vitassalvantes.webkrypto.ciphers.CodeWordCipher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -67,8 +68,18 @@ public class CiphersController {
     }
 
     @PostMapping("/code-word")
-    public String codeWordResult(Model model) {
-        String result = "It's code word";
+    public String codeWordResult(@RequestParam(defaultValue = "Encryption") String action, @RequestParam(defaultValue = "0") String key, @RequestParam(defaultValue = "Hello world!") String message, Model model) {
+        String result;
+        CodeWordCipher cwc = new CodeWordCipher();
+        cwc.setCodeWord(key);
+        cwc.setInputMessage(message);
+
+        if (action.equals("Encryption")) {
+            result = cwc.encryption();
+        } else {
+            result = cwc.decryption();
+        }
+
         model.addAttribute("result", result);
         return "result";
     }
