@@ -4,14 +4,13 @@ import com.vitassalvantes.webkrypto.ciphers.CaesarCipher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CiphersController {
 
-    @GetMapping("/caesar")                      // TODO: switch-case
+    @GetMapping("/caesar")
     public String caesarCipher(Model model) {
         String title = "Title1";
         String description = "Description1";
@@ -39,8 +38,18 @@ public class CiphersController {
     }
 
     @PostMapping("/caesar")
-    public String caesarResult(Model model) {
-        String result = "It's caesar";
+    public String caesarResult(@RequestParam(defaultValue = "Encryption") String action, @RequestParam(defaultValue = "0") int key, @RequestParam(defaultValue = "Hello world!") String message, Model model) {
+        String result;
+        CaesarCipher cc = new CaesarCipher();
+        cc.setKey(key);
+        cc.setInputMessage(message);
+
+        if (action.equals("Encryption")) {
+            result = cc.encryption();
+        } else {
+            result = cc.decryption();
+        }
+
         model.addAttribute("result", result);
         return "result";
     }
