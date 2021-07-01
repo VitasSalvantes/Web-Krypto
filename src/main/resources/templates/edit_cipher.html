@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Edit cipher</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Edit cipher</h1>
+    <form method="post">
+        <input th:value="${name}" type="text" name="name" class="form-control"><br>
+        <textarea th:utext="${description}" name="description" class="md-textarea form-control" rows="3"></textarea>
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-lg">Refresh</button>
+        </div>
+    </form>
+</div>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
