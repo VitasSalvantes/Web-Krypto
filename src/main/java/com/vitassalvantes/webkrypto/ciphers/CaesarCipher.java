@@ -5,45 +5,59 @@ import java.util.Scanner;
 
 /**
  * Class with methods for encrypting messages with Caesar cipher
- * 
+ *
  * @author VitasSalvantes
  * @version 5.0
  */
 
 public class CaesarCipher {
 
-    /** En- or decrypted message */
+    /**
+     * En- or decrypted message
+     */
     private String outputMessage = "";
 
-    /** List of letters of the English alphabet */
+    /**
+     * List of letters of the English alphabet
+     */
     final private ArrayList<Character> englishAlphabet = new ArrayList<Character>();
 
-    /** Message from user */
+    /**
+     * Message from user
+     */
     private char[] inputMessage;
 
-    /** Key used for encryption */
+    /**
+     * Key used for encryption
+     */
     private int key;
 
-    /** Method for creating letters of the English alphabet */
+    /**
+     * Method for creating letters of the English alphabet
+     */
     private void createEnglishAlphabet() {
         for (char letter = 'a'; letter <= 'z'; letter++) {
             englishAlphabet.add(letter);
         }
     }
 
-    /** Setter for inputMessage {@link CaesarCipher#inputMessage} */
+    /**
+     * Setter for inputMessage {@link CaesarCipher#inputMessage}
+     */
     public void setInputMessage(String inputMessage) {
         this.inputMessage = inputMessage.toLowerCase().toCharArray();
     }
 
-    /** Setter for key {@link CaesarCipher#key} */
+    /**
+     * Setter for key {@link CaesarCipher#key}
+     */
     public void setKey(int key) {
         this.key = Math.abs(key % 25);
     }
 
     /**
      * Method for encrypting a user message with Caesar cipher
-     * 
+     *
      * @return outputMessage {@link CaesarCipher#outputMessage}
      */
     public String encryption() {
@@ -67,7 +81,7 @@ public class CaesarCipher {
 
     /**
      * Method for decrypting a user message with Caesar cipher
-     * 
+     *
      * @return outputMessage {@link CaesarCipher#outputMessage}
      */
     public String decryption() {
