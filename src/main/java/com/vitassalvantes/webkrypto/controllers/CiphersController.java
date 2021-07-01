@@ -3,6 +3,9 @@ package com.vitassalvantes.webkrypto.controllers;
 import com.vitassalvantes.webkrypto.ciphers.AtbashCipher;
 import com.vitassalvantes.webkrypto.ciphers.CaesarCipher;
 import com.vitassalvantes.webkrypto.ciphers.CodeWordCipher;
+import com.vitassalvantes.webkrypto.models.Cipher;
+import com.vitassalvantes.webkrypto.repo.CipherRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,31 +15,60 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CiphersController {
 
+    @Autowired
+    private CipherRepository cipherRepository;
+
     @GetMapping("/caesar")
     public String caesarCipher(Model model) {
-        String title = "Title1";
-        String description = "Description1";
-        model.addAttribute("title", title);
-        model.addAttribute("description", description);
+        if (cipherRepository.existsByName("Caesar cipher")) {
+            Cipher caesarCipher = cipherRepository.findCipherByName("Caesar cipher");
+            String name = caesarCipher.getName();
+            String description = caesarCipher.getDescription();
+            model.addAttribute("name", name);
+            model.addAttribute("description", description);
+        } else {
+            return "redirect:/edit_cipher";
+        }
         return "cipher";
     }
 
     @GetMapping("/atbash")
     public String atbashCipher(Model model) {
-        String title = "Title2";
+        String name = "Title2";
         String description = "Description2";
-        model.addAttribute("title", title);
+        model.addAttribute("title", name);
         model.addAttribute("description", description);
         return "cipher";
     }
 
     @GetMapping("/code-word")
     public String codeWordCipher(Model model) {
-        String title = "Title3";
+        String name = "Title3";
         String description = "Description3";
-        model.addAttribute("title", title);
+        model.addAttribute("title", name);
         model.addAttribute("description", description);
         return "cipher";
+    }
+
+    @GetMapping("/edit_cipher")
+    public String editCipher(@RequestParam(defaultValue = "Test name") String name, @RequestParam(defaultValue = "Test description") String description, Model model) {
+        model.addAttribute("name", name);
+        model.addAttribute("description", description);
+        return "edit_cipher";
+    }
+
+    @PostMapping("/edit_cipher")
+    public String saveEditCipher(@RequestParam(defaultValue = "Test name") String name, @RequestParam(defaultValue = "Test description") String description, Model model) {
+        if (cipherRepository.existsByName(name)){
+            Cipher cipher = cipherRepository.findCipherByName(name);
+            cipher.setName(name);
+            cipher.setDescription(description);
+            cipherRepository.save(cipher);
+        } else {
+            Cipher cipher = new Cipher(name, description);
+            cipherRepository.save(cipher);
+        }
+        return "home";
     }
 
     @PostMapping("/caesar")
