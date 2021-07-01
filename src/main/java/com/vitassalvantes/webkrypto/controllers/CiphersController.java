@@ -1,5 +1,6 @@
 package com.vitassalvantes.webkrypto.controllers;
 
+import com.vitassalvantes.webkrypto.ciphers.AtbashCipher;
 import com.vitassalvantes.webkrypto.ciphers.CaesarCipher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,8 +56,12 @@ public class CiphersController {
     }
 
     @PostMapping("/atbash")
-    public String atbashResult(Model model) {
-        String result = "It's atbash";
+    public String atbashResult(@RequestParam(defaultValue = "Hello world!") String message, Model model) {
+        AtbashCipher ac = new AtbashCipher();
+        ac.setInputMessage(message);
+
+        String result = ac.encryption();
+
         model.addAttribute("result", result);
         return "result";
     }
