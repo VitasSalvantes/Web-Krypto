@@ -9,9 +9,13 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<h1 th:text="${title}"></h1>
+<h1 th:text="${name}"></h1>
 
 <div th:utext="${description}"></div>
+
+<div class="text-center  mt-5 mb-5">
+    <a href="/edit_cipher" class="btn btn-primary btn-lg" role="button">Edit</a>
+</div>
 
 <div class="container mt-5 mb-5">
     <h1>Try</h1>
@@ -21,7 +25,8 @@
             <option>Decryption</option>
         </select><br>
         <input type="text" name="key" placeholder="Write your key here" class="form-control"><br>
-        <textarea name="message" class="md-textarea form-control" rows="3" placeholder="Write your message here"></textarea>
+        <textarea name="message" class="md-textarea form-control" rows="3"
+                  placeholder="Write your message here"></textarea>
         <br>
         <div class="text-center">
             <button type="submit" class="btn btn-outline-primary btn-lg">Go</button>
