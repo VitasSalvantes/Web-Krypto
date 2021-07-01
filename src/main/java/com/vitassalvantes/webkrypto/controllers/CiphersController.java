@@ -38,20 +38,24 @@ public class CiphersController {
         return "cipher";
     }
 
-    @GetMapping("/sandbox")
-    public String sandbox(Model model) {
-        return "sandbox";
+    @PostMapping("/caesar")
+    public String caesarResult(Model model) {
+        String result = "It's caesar";
+        model.addAttribute("result", result);
+        return "result";
     }
 
-    @PostMapping("/sandbox")
-    public String result(@RequestParam String cipher, @RequestParam String action, @RequestParam String message, Model model) {
-        switch (cipher) {
-            case "Caesar cipher":
-                message = new CaesarCipher()
-            case "Atbash cipher":
+    @PostMapping("/atbash")
+    public String atbashResult(Model model) {
+        String result = "It's atbash";
+        model.addAttribute("result", result);
+        return "result";
+    }
 
-            case "Code word cipher":
-        }
+    @PostMapping("/code-word")
+    public String codeWordResult(Model model) {
+        String result = "It's code word";
+        model.addAttribute("result", result);
         return "result";
     }
 }
