@@ -13,8 +13,20 @@
 
 <div th:utext="${description}"></div>
 
-<div class="text-center">
-    <a href="/sandbox" class="btn btn-primary btn-lg" role="button">Try</a>
+<div class="container mt-5 mb-5">
+    <h1>Try</h1>
+    <form method="post">
+        <select name="action" class="form-control">
+            <option>Encryption</option>
+            <option>Decryption</option>
+        </select><br>
+        <input type="text" name="key" placeholder="Write your key here" class="form-control"><br>
+        <textarea name="message" class="md-textarea form-control" rows="3" placeholder="Write your message here"></textarea>
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-lg">Go</button>
+        </div>
+    </form>
 </div>
 
 <footer th:insert="blocks/footer :: footer"></footer>
