@@ -1,13 +1,12 @@
 package com.vitassalvantes.webkrypto.ciphers;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Class with methods for encrypting messages with Caesar cipher
  *
  * @author VitasSalvantes
- * @version 5.0
+ * @version 6.0
  */
 
 public class CaesarCipher {

@@ -1,13 +1,12 @@
 package com.vitassalvantes.webkrypto.ciphers;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Class for encrypting messages with Atbash cipher
  *
  * @author VitasSalvantes
- * @version 1.5
+ * @version 3.0
  */
 
 public class AtbashCipher {
