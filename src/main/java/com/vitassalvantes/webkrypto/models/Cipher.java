@@ -12,7 +12,7 @@ public class Cipher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String name, description, views;
+    private String name, description;
 
     public long getId() {
         return id;
@@ -36,14 +36,6 @@ public class Cipher {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getViews() {
-        return views;
-    }
-
-    public void setViews(String views) {
-        this.views = views;
     }
 
     public Cipher() {
