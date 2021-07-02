@@ -34,19 +34,29 @@ public class CiphersController {
 
     @GetMapping("/atbash")
     public String atbashCipher(Model model) {
-        String name = "Title2";
-        String description = "Description2";
-        model.addAttribute("title", name);
-        model.addAttribute("description", description);
+        if (cipherRepository.existsByName("Atbash cipher")) {
+            Cipher atbashCipher = cipherRepository.findCipherByName("Atbash cipher");
+            String name = atbashCipher.getName();
+            String description = atbashCipher.getDescription();
+            model.addAttribute("name", name);
+            model.addAttribute("description", description);
+        } else {
+            return "redirect:/edit_cipher";
+        }
         return "cipher";
     }
 
     @GetMapping("/code-word")
     public String codeWordCipher(Model model) {
-        String name = "Title3";
-        String description = "Description3";
-        model.addAttribute("title", name);
-        model.addAttribute("description", description);
+        if (cipherRepository.existsByName("Code word cipher")) {
+            Cipher codeWordCipher = cipherRepository.findCipherByName("Code word cipher");
+            String name = codeWordCipher.getName();
+            String description = codeWordCipher.getDescription();
+            model.addAttribute("name", name);
+            model.addAttribute("description", description);
+        } else {
+            return "redirect:/edit_cipher";
+        }
         return "cipher";
     }
 
