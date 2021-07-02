@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title th:text="${title}"></title>
+    <title th:text="${name}"></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
@@ -13,9 +13,12 @@
 
 <div th:utext="${description}"></div>
 
-<div class="text-center  mt-5 mb-5">
-    <a href="/edit_cipher" class="btn btn-primary btn-lg" role="button">Edit</a>
-</div>
+<form method="get" action="/edit_ciphers_description">
+    <input type="hidden" name="name" class="form-control" th:value="${name}"><br>
+    <div class="text-center">
+        <button type="submit" class="btn btn-outline-primary btn-lg">Edit</button>
+    </div>
+</form>
 
 <div class="container mt-5 mb-5">
     <h1>Try</h1>
