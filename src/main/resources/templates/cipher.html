@@ -9,9 +9,9 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<h1 th:text="${name}"></h1>
+<h1 th:text="${name}" class="text-center"></h1>
 
-<div th:utext="${description}"></div>
+<div th:utext="${description}" class="container mt-5 mb-5"></div>
 
 <form method="get" action="/edit_ciphers_description">
     <input type="hidden" name="name" class="form-control" th:value="${name}"><br>
