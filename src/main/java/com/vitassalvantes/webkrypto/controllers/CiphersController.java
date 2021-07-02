@@ -20,64 +20,47 @@ public class CiphersController {
 
     @GetMapping("/caesar")
     public String caesarCipher(Model model) {
-        if (cipherRepository.existsByName("Caesar cipher")) {
-            Cipher caesarCipher = cipherRepository.findCipherByName("Caesar cipher");
-            String name = caesarCipher.getName();
-            String description = caesarCipher.getDescription();
-            model.addAttribute("name", name);
-            model.addAttribute("description", description);
-        } else {
-            return "redirect:/edit_cipher";
-        }
+        Cipher caesarCipher = cipherRepository.findCipherByName("Caesar cipher");
+        String name = caesarCipher.getName();
+        String description = caesarCipher.getDescription();
+        model.addAttribute("name", name);
+        model.addAttribute("description", description);
         return "cipher";
     }
 
     @GetMapping("/atbash")
     public String atbashCipher(Model model) {
-        if (cipherRepository.existsByName("Atbash cipher")) {
-            Cipher atbashCipher = cipherRepository.findCipherByName("Atbash cipher");
-            String name = atbashCipher.getName();
-            String description = atbashCipher.getDescription();
-            model.addAttribute("name", name);
-            model.addAttribute("description", description);
-        } else {
-            return "redirect:/edit_cipher";
-        }
+        Cipher atbashCipher = cipherRepository.findCipherByName("Atbash cipher");
+        String name = atbashCipher.getName();
+        String description = atbashCipher.getDescription();
+        model.addAttribute("name", name);
+        model.addAttribute("description", description);
         return "cipher";
     }
 
     @GetMapping("/code-word")
     public String codeWordCipher(Model model) {
-        if (cipherRepository.existsByName("Code word cipher")) {
-            Cipher codeWordCipher = cipherRepository.findCipherByName("Code word cipher");
-            String name = codeWordCipher.getName();
-            String description = codeWordCipher.getDescription();
-            model.addAttribute("name", name);
-            model.addAttribute("description", description);
-        } else {
-            return "redirect:/edit_cipher";
-        }
+        Cipher codeWordCipher = cipherRepository.findCipherByName("Code word cipher");
+        String name = codeWordCipher.getName();
+        String description = codeWordCipher.getDescription();
+        model.addAttribute("name", name);
+        model.addAttribute("description", description);
         return "cipher";
     }
 
-    @GetMapping("/edit_cipher")
+    @GetMapping("/edit_ciphers_description")
     public String editCipher(@RequestParam(defaultValue = "Test name") String name, @RequestParam(defaultValue = "Test description") String description, Model model) {
-        model.addAttribute("name", name);
-        model.addAttribute("description", description);
-        return "edit_cipher";
+        Cipher cipher = cipherRepository.findCipherByName(name);
+        model.addAttribute("name", cipher.getName());
+        model.addAttribute("description", cipher.getDescription());
+        return "edit_ciphers_description";
     }
 
-    @PostMapping("/edit_cipher")
-    public String saveEditCipher(@RequestParam(defaultValue = "Test name") String name, @RequestParam(defaultValue = "Test description") String description, Model model) {
-        if (cipherRepository.existsByName(name)){
-            Cipher cipher = cipherRepository.findCipherByName(name);
-            cipher.setName(name);
-            cipher.setDescription(description);
-            cipherRepository.save(cipher);
-        } else {
-            Cipher cipher = new Cipher(name, description);
-            cipherRepository.save(cipher);
-        }
+    @PostMapping("/edit_ciphers_description")
+    public String saveEditCipher(@RequestParam(defaultValue = "Test name") String newName, @RequestParam(defaultValue = "Test description") String newDescription, Model model) {
+        Cipher cipher = cipherRepository.findCipherByName(newName);
+        cipher.setDescription(newDescription);
+        cipherRepository.save(cipher);
         return "home";
     }
 
