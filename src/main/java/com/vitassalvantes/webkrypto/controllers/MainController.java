@@ -4,6 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * Controller for handling requests to home and about pages
+ *
+ * @author VitasSalvantes
+ * @version 1.0
+ */
 @Controller
 public class MainController {
 

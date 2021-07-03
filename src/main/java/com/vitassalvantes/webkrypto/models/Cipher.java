@@ -5,6 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Model for displaying cipher data
+ *
+ * @author VitasSalvantes
+ * @version 1.0
+ */
 @Entity
 public class Cipher {
 

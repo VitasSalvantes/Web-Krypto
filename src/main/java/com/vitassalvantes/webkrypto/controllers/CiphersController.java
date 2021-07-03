@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * Controller for handling requests to cipher pages
+ *
+ * @author VitasSalvantes
+ * @version 1.0
+ */
 @Controller
 public class CiphersController {
 
