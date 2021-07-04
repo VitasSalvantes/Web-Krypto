@@ -1,5 +1,7 @@
 # Web-Krypto
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/VitasSalvantes/Web-Krypto/blob/master/LICENSE)
+
 This app was created to reinforce the material learned during [this](https://itproger.com/course/java-spring) course. I
 learned the basics of developing Java applications using Spring Boot technology and developed my own project.
 
@@ -13,6 +15,7 @@ Development of the project began on **June 18, 2021**.
 - [Development progress](#Development-progress)
 - [Project statistics](#Project-statistics)
 - [How to install](#How-to-install)
+- [How to contribute](#How-to-contribute)
 
 ## How does it work ##
 
@@ -98,3 +101,8 @@ on [WakaTime](https://wakatime.com/@9a3d815f-a717-4cd2-b355-b359c1e94cfd/project
 ## How to install ##
 
 At the moment, running the program on a user's computer is not supported due to the lack of a local database.
+
+## How to contribute ##
+
+If you want to take part in the development of this project, please
+read [this](https://github.com/VitasSalvantes/Web-Krypto/blob/master/CONTRIBUTING.md) file.
