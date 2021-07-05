@@ -3,9 +3,6 @@ package com.vitassalvantes.webkrypto.controllers;
 import com.vitassalvantes.webkrypto.ciphers.AtbashCipher;
 import com.vitassalvantes.webkrypto.ciphers.CaesarCipher;
 import com.vitassalvantes.webkrypto.ciphers.CodeWordCipher;
-import com.vitassalvantes.webkrypto.models.Cipher;
-import com.vitassalvantes.webkrypto.repo.CipherRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,58 +13,27 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Controller for handling requests to cipher pages
  *
  * @author VitasSalvantes
- * @version 1.0
+ * @version 2.0
  */
 @Controller
 public class CiphersController {
 
-    @Autowired
-    private CipherRepository cipherRepository;
-
     @GetMapping("/caesar")
     public String caesarCipher(Model model) {
-        Cipher caesarCipher = cipherRepository.findCipherByName("Caesar cipher");
-        String name = caesarCipher.getName();
-        String description = caesarCipher.getDescription();
-        model.addAttribute("name", name);
-        model.addAttribute("description", description);
-        return "cipher";
+        model.addAttribute("title", "Caesar cipher");
+        return "caesar";
     }
 
     @GetMapping("/atbash")
     public String atbashCipher(Model model) {
-        Cipher atbashCipher = cipherRepository.findCipherByName("Atbash cipher");
-        String name = atbashCipher.getName();
-        String description = atbashCipher.getDescription();
-        model.addAttribute("name", name);
-        model.addAttribute("description", description);
-        return "cipher";
+        model.addAttribute("title", "Atbash cipher");
+        return "atbash";
     }
 
     @GetMapping("/code-word")
     public String codeWordCipher(Model model) {
-        Cipher codeWordCipher = cipherRepository.findCipherByName("Code word cipher");
-        String name = codeWordCipher.getName();
-        String description = codeWordCipher.getDescription();
-        model.addAttribute("name", name);
-        model.addAttribute("description", description);
-        return "cipher";
-    }
-
-    @GetMapping("/edit_ciphers_description")
-    public String editCipher(@RequestParam(defaultValue = "Test name") String name, @RequestParam(defaultValue = "Test description") String description, Model model) {
-        Cipher cipher = cipherRepository.findCipherByName(name);
-        model.addAttribute("name", cipher.getName());
-        model.addAttribute("description", cipher.getDescription());
-        return "edit_ciphers_description";
-    }
-
-    @PostMapping("/edit_ciphers_description")
-    public String saveEditCipher(@RequestParam(defaultValue = "Test name") String newName, @RequestParam(defaultValue = "Test description") String newDescription, Model model) {
-        Cipher cipher = cipherRepository.findCipherByName(newName);
-        cipher.setDescription(newDescription);
-        cipherRepository.save(cipher);
-        return "home";
+        model.addAttribute("title", "Code word cipher");
+        return "code_word";
     }
 
     @PostMapping("/caesar")
@@ -83,7 +49,7 @@ public class CiphersController {
             result = cc.decryption();
         }
 
-        model.addAttribute("result", result);
+        model.addAttribute("output_message", result);
         return "result";
     }
 
@@ -94,12 +60,12 @@ public class CiphersController {
 
         String result = ac.encryption();
 
-        model.addAttribute("result", result);
+        model.addAttribute("output_message", result);
         return "result";
     }
 
     @PostMapping("/code-word")
-    public String codeWordResult(@RequestParam(defaultValue = "Encryption") String action, @RequestParam(defaultValue = "0") String key, @RequestParam(defaultValue = "Hello world!") String message, Model model) {
+    public String codeWordResult(@RequestParam(defaultValue = "Encryption") String action, @RequestParam(defaultValue = "a") String key, @RequestParam(defaultValue = "Hello world!") String message, Model model) {
         String result;
         CodeWordCipher cwc = new CodeWordCipher();
         cwc.setCodeWord(key);
@@ -111,7 +77,7 @@ public class CiphersController {
             result = cwc.decryption();
         }
 
-        model.addAttribute("result", result);
+        model.addAttribute("output_message", result);
         return "result";
     }
 }
