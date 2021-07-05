@@ -9,7 +9,50 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<h1>Home</h1>
+<h1 class="text-center">Welcome!</h1>
+
+<div class="container mb-5 mt-5">
+    <p>
+        This web application is designed to encrypt and decrypt texts using simple ciphers. At the moment, work with 3
+        ciphers
+        has been implemented: with the Caesar cipher, the code word cipher, and the Atbash cipher.
+    </p>
+</div>
+
+<div class="container">
+    <div class="col-md-12">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <h3 class="mb-0">Atbash cipher</h3>
+                <p class="mb-auto">The Atbash cipher is a particular type of monoalphabetic cipher formed by taking the
+                    alphabet...</p>
+                <a href="/atbash" class="stretched-link">Continue</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <h3 class="mb-0">Caesar cipher</h3>
+                <p class="card-text mb-auto">In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift
+                    cipher, Caesar's code or Caesar shift, is one of the simplest and...</p>
+                <a href="/caesar" class="stretched-link">Continue</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <h3 class="mb-0">Code word cipher</h3>
+                <p class="mb-auto">Substitution of single letters separately — simple substitution — can be demonstrated
+                    by writing out the alphabet in...</p>
+                <a href="/code-word" class="stretched-link">Continue</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer th:insert="blocks/footer :: footer"></footer>
 </body>
