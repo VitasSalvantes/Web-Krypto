@@ -34,7 +34,7 @@ the necessary information.
 
 ## Screenshots ##
 
-*All screenshots are relevant for version 1.0*
+*All screenshots are relevant for version 2.0*
 
 Home page:
 
@@ -72,9 +72,6 @@ About page:
 
 - [Thymeleaf](https://www.thymeleaf.org/) was chosen as the template engine.
 
-- [MySQL](https://www.mysql.com/de/) was chosen as the database. To run on a local server,
-  the [MAMP](https://www.mamp.info/de/windows/) program was used.
-
 - [Figma](https://www.figma.com/) was used to prototype the user interface.
 
 - The app was designed using [Bootstrap](https://getbootstrap.com/).
@@ -85,7 +82,7 @@ About page:
 
 ## Development progress ##
 
-The application is under active development.
+Application development is complete, but you can make your changes (both in design and in java code).
 
 *Since I am developing this project mainly alone, I see no reason to use [Trello](https://trello.com/).*
 
@@ -101,7 +98,15 @@ on [WakaTime](https://wakatime.com/@9a3d815f-a717-4cd2-b355-b359c1e94cfd/project
 
 ## How to install ##
 
-At the moment, running the program on a user's computer is not supported due to the lack of a local database.
+1. Download the [latest release version](https://github.com/VitasSalvantes/Web-Krypto/releases) (Web-Krypto archive with
+   .jar extension)
+2. Check if java is installed (enter the command <code>java -version</code> in the command line or terminal), if java is
+   not installed then [install](https://www.google.de/search?q=how+to+install+java)
+3. Go to the command line or terminal to the folder with the downloaded archive and run the archive on the command line
+   or terminal using the command <code>java -jar Web-Krypto.jar</code>
+4. Open your browser and follow the link http://localhost:8080/
+5. In order to exit the program, you need to enter <code>ctrl+c</code> in the command line or terminal or remove the
+   task in the task manager
 
 ## How to contribute ##
 
