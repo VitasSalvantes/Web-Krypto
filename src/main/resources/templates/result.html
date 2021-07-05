@@ -9,7 +9,9 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<textarea th:text="${result}" id="result" class="md-textarea form-control" rows="3"></textarea>
+<div class="container mt-5 md-5">
+    <textarea th:text="${output_message}" id="result" class="md-textarea form-control" rows="14"></textarea>
+</div>
 
 <div class="text-center mt-5 mb-5">
     <button class="btn btn-outline-primary btn-lg" onclick="copyToClipboard('result')">Copy</button>
