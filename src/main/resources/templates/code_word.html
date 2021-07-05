@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Code word cipher</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<h1 th:text="${title}" class="text-center"></h1>
+
+<div class="container mt-5 mb-5">
+    <p>Substitution of single letters separately — simple substitution — can be demonstrated by writing out the alphabet
+        in some order to represent the substitution. This is termed a substitution alphabet. The cipher alphabet may be
+        shifted or reversed (creating the Caesar and Atbash ciphers, respectively) or scrambled in a more complex
+        fashion, in which case it is called a mixed alphabet or deranged alphabet. Traditionally, mixed alphabets may be
+        created by first writing out a keyword, removing repeated letters in it, then writing all the remaining letters
+        in the alphabet in the usual order.</p>
+
+    <p>Using this system, the keyword "zebras" gives us the following alphabets:</p>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Plain</th>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td>J</td>
+            <td>K</td>
+            <td>L</td>
+            <td>M</td>
+            <td>N</td>
+            <td>O</td>
+            <td>P</td>
+            <td>Q</td>
+            <td>R</td>
+            <td>S</td>
+            <td>T</td>
+            <td>U</td>
+            <td>V</td>
+            <td>W</td>
+            <td>X</td>
+            <td>Y</td>
+            <td>Z</td>
+        </tr>
+
+        <tr>
+            <th>Cipher</th>
+            <td>Z</td>
+            <td>E</td>
+            <td>B</td>
+            <td>R</td>
+            <td>A</td>
+            <td>S</td>
+            <td>C</td>
+            <td>D</td>
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td>I</td>
+            <td>J</td>
+            <td>K</td>
+            <td>L</td>
+            <td>M</td>
+            <td>N</td>
+            <td>O</td>
+            <td>P</td>
+            <td>Q</td>
+            <td>T</td>
+            <td>U</td>
+            <td>V</td>
+            <td>W</td>
+            <td>X</td>
+            <td>Y</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <a href="https://github.com/VitasSalvantes/SimplePrograms#CodeWordCipher">See more</a>
+</div>
+
+<div class="container mt-5 mb-5">
+    <h2>Try it</h2><br>
+    <form method="post">
+        <select name="action" class="form-control">
+            <option>Encryption</option>
+            <option>Decryption</option>
+        </select><br>
+        <input type="text" name="key" placeholder="Write your key here" class="form-control"><br>
+        <textarea name="message" class="md-textarea form-control" rows="3"
+                  placeholder="Write your message here"></textarea>
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-lg">Go</button>
+        </div>
+    </form>
+</div>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
