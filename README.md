@@ -1,7 +1,7 @@
 # Web-Krypto
 
 [![GitHub license](https://img.shields.io/github/license/VitasSalvantes/Web-Krypto)](https://github.com/VitasSalvantes/Web-Krypto/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/VitasSalvantes/Web-Krypto)](https://GitHub.com/VitasSalvantes/Web-Krypto/graphs/contributors/)
+[![GitHub issues](https://img.shields.io/github/issues/VitasSalvantes/Web-Krypto)](https://github.com/VitasSalvantes/Web-Krypto/issues)
 
 This app was created to reinforce the material learned during [this](https://itproger.com/course/java-spring) course. I
 learned the basics of developing Java applications using Spring Boot technology and developed my own project.
