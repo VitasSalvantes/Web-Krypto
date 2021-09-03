@@ -20,13 +20,13 @@ learned the basics of developing Java applications using Spring Boot technology 
 ## How does it work ##
 
 This web application is designed to encrypt and decrypt texts using simple ciphers. At the moment, work with 3 ciphers
-has been implemented: with the Caesar cipher, the code word cipher, and the Atbash cipher.
+has been implemented: with the Caesar cipher, the Code Word cipher, and the Atbash cipher.
 
 The first thing the user sees is the **home page**. It displays a short description of the web application and links to
 cipher pages.
 
-Then the user can go to one of the **cipher pages**. The user can read a detailed description of the cipher and encrypt
-or decrypt any text, and then, on the **result page**, copy the result to the clipboard by clicking on the button.
+Then the user can go to one of the **cipher pages**. The user can read a detailed description of the cipher, encrypt
+or decrypt any text and then, on the **result page**, copy the result to the clipboard by clicking on the button.
 
 If the user wants to learn more about the developers of this application, then he can go to the **about page** and get
 the necessary information.
