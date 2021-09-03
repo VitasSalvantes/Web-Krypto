@@ -7,9 +7,7 @@
 This app was created to reinforce the material learned during [this](https://itproger.com/course/java-spring) course. I
 learned the basics of developing Java applications using Spring Boot technology and developed my own project.
 
-Development of the project began on **June 18, 2021**.
-
-## Content ##
+## Table of contents ##
 
 - [How does it work](#How-does-it-work)
 - [Screenshots](#Screenshots)
@@ -82,6 +80,8 @@ About page:
 - [Microsoft To Do](https://todo.microsoft.com/tasks/) was used to schedule tasks.
 
 ## Development progress ##
+
+Development of the project began on **June 18, 2021**.
 
 Application development is complete, but you can make your changes (both in design and in java code).
 
